@@ -1,0 +1,27 @@
+// The guess API is already defined for you.
+// int guess(int num);
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        int low = 1, high = n;
+
+        while (low <= high) {
+            long long mid = low + (high - low) / 2;
+
+            int res = guess(mid);
+
+            if (res == 0) {
+                return mid;
+            }
+            else if (res == 1) {
+                low = mid + 1; 
+            }
+            else {
+                high = mid - 1; 
+            }
+        }
+
+        return -1;
+    }
+};
